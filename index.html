@@ -44,8 +44,7 @@ section{padding:96px 0;position:relative}
 .nav-in{display:flex;align-items:center;gap:18px;height:72px}
 .logo{display:flex;align-items:center;text-decoration:none}
 .logo svg{height:44px;width:auto}
-.nav .logo .lt{fill:#fff}.nav .logo .ring{stroke:#fff}
-.nav.solid .logo .lt{fill:var(--ink)}.nav.solid .logo .ring{stroke:var(--ink)}
+.nav .logo{color:#fff}.nav.solid .logo,.nav.open .logo{color:var(--ink)}
 .links{display:flex;gap:4px;margin-left:auto;list-style:none}
 .links a{display:block;padding:9px 14px;border-radius:99px;text-decoration:none;font-weight:700;font-size:14.5px;color:#fff;transition:background .2s}
 .nav.solid .links a{color:var(--ink)}
@@ -177,7 +176,7 @@ section{padding:96px 0;position:relative}
 .meas b{display:block;font-family:var(--fd);font-size:26px;line-height:1.1}
 .meas span{font-size:12px;color:rgba(246,239,225,.6);font-weight:700;letter-spacing:.04em;text-transform:uppercase}
 .mini{border-radius:26px;overflow:hidden;position:relative;min-height:250px}
-.mini img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.mini img{width:100%;height:100%;object-fit:cover;object-position:center 35%;position:absolute;inset:0}
 .mini div{position:absolute;inset:auto 0 0 0;padding:22px;color:#fff;background:linear-gradient(transparent,rgba(15,42,48,.85))}
 .mini b{font-family:var(--fd);font-size:24px;display:block}
 .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
@@ -269,7 +268,7 @@ section{padding:96px 0;position:relative}
 
 footer{background:var(--ink);color:rgba(246,239,225,.7);padding:56px 0 110px;text-align:center;font-size:14px}
 footer svg{height:56px;margin:0 auto 16px}
-footer .lt{fill:var(--sand)}footer .ring{stroke:var(--sand)}
+footer svg{color:var(--sand)}
 footer a{color:var(--sand)}
 
 .fab{position:fixed;right:18px;bottom:18px;z-index:70;width:60px;height:60px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 12px 30px rgba(0,0,0,.3);transition:transform .2s}
@@ -283,7 +282,6 @@ footer a{color:var(--sand)}
   .links,.nav .cta{display:none}
   .burger{display:block}
   .nav.open{background:var(--sand)}
-  .nav.open .logo .lt{fill:var(--ink)}.nav.open .logo .ring{stroke:var(--ink)}
   .nav.open .burger{background:var(--ink)}
   .nav.open .links{display:flex;position:fixed;top:72px;left:0;right:0;flex-direction:column;background:var(--sand);padding:10px 22px 26px;box-shadow:0 20px 40px rgba(15,42,48,.15);gap:2px}
   .nav.open .links a{color:var(--ink);font-size:19px;padding:14px 6px;border-bottom:1px solid var(--line);border-radius:0;font-family:var(--fd)}
@@ -315,7 +313,7 @@ footer a{color:var(--sand)}
 
 <svg width="0" height="0" style="position:absolute">
   <symbol id="wa" viewBox="0 0 32 32"><path d="M16 3C8.8 3 3 8.7 3 15.8c0 2.3.6 4.5 1.8 6.4L3 29l7-1.8c1.8 1 3.9 1.5 6 1.5 7.2 0 13-5.7 13-12.8S23.2 3 16 3zm0 23.4c-1.9 0-3.8-.5-5.4-1.5l-.4-.2-4.1 1.1 1.1-4-.3-.4c-1.1-1.7-1.6-3.6-1.6-5.6 0-5.9 4.8-10.6 10.7-10.6s10.7 4.8 10.7 10.6-4.8 10.6-10.7 10.6zm5.9-7.9c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.6.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.7s1.2 3.2 1.4 3.4c.2.2 2.4 3.6 5.7 5 .8.3 1.4.5 1.9.7.8.3 1.5.2 2.1.1.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.7-.5z"/></symbol>
-  <symbol id="logo" viewBox="0 0 220 84"><ellipse class="ring" cx="110" cy="42" rx="106" ry="38" fill="none" stroke-width="3"/><ellipse class="ring" cx="110" cy="42" rx="99" ry="31" fill="none" stroke-width="1.2" opacity=".6"/><text class="lt" x="110" y="31" text-anchor="middle" font-family="Manrope,Arial" font-weight="800" font-size="11" letter-spacing="4.5">CERVECERÍA</text><text class="lt" x="110" y="62" text-anchor="middle" font-family="Fraunces,Georgia" font-weight="900" font-size="32" letter-spacing="3">MOANA</text></symbol>
+  <symbol id="logo" viewBox="0 0 220 84"><ellipse cx="110" cy="42" rx="106" ry="38" fill="none" stroke="currentColor" stroke-width="3"/><ellipse cx="110" cy="42" rx="99" ry="31" fill="none" stroke="currentColor" stroke-width="1.2" opacity=".6"/><text fill="currentColor" x="110" y="31" text-anchor="middle" font-family="Manrope,Arial" font-weight="800" font-size="11" letter-spacing="4.5">CERVECERÍA</text><text fill="currentColor" x="110" y="62" text-anchor="middle" font-family="Fraunces,Georgia" font-weight="900" font-size="32" letter-spacing="3">MOANA</text></symbol>
 </svg>
 
 <header class="nav" id="nav">
