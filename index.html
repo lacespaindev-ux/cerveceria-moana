@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cervecería Moana · Cervezas, pinchos y fútbol junto a San Lorenzo · Gijón</title>
+<meta name="description" content="Cervecería Moana, en la calle Manso 5 (La Arena, Gijón). Más de 20 cervezas, un pincho con cada consumición, fútbol en pantalla y a un paso de la playa de San Lorenzo.">
+<meta name="theme-color" content="#0f2a30">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f2a30'/%3E%3Cpath d='M10 40c6-6 12-6 18 0s12 6 18 0 8-5 8-5' stroke='%2346b38a' stroke-width='5' fill='none' stroke-linecap='round'/%3E%3Ctext x='32' y='30' text-anchor='middle' font-family='Georgia' font-weight='700' font-size='22' fill='%23f6efe1'%3EM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,500;1,9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0f2a30; --ink2:#163a42; --sea:#0f5160; --surf:#2f9e6a; --surf2:#46b38a; --foam:#e8f3ee;
+  --sand:#f6efe1; --sand2:#ece0c8; --sun:#f0a24b; --coral:#e7704f; --mute:#5f7378; --line:rgba(15,42,48,.12);
+  --r:20px; --fd:'Fraunces',Georgia,serif; --fb:'Manrope',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{font:500 16px/1.6 var(--fb);color:var(--ink);background:var(--sand);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+.wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+h1,h2,h3{font-family:var(--fd);font-weight:700;letter-spacing:-.01em;line-height:1.05}
+.kick{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--surf)}
+.kick:before{content:"";width:22px;height:2px;background:currentColor;border-radius:2px}
+.h2{font-size:clamp(36px,6vw,64px);margin:10px 0 14px}
+.h2 em{font-style:italic;color:var(--sea);font-weight:500}
+.lead{color:var(--mute);font-size:17px;max-width:560px}
+section{padding:96px 0;position:relative}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:15px 24px;border-radius:99px;font-weight:800;font-size:15px;text-decoration:none;transition:transform .2s,box-shadow .2s,background .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.p{background:var(--surf);color:#fff;box-shadow:0 10px 24px rgba(47,158,106,.35)}
+.btn.l{background:rgba(255,255,255,.12);color:#fff;border:1.5px solid rgba(255,255,255,.4);backdrop-filter:blur(8px)}
+.btn.d{background:var(--ink);color:var(--sand)}
+.btn.o{border:1.5px solid var(--ink);color:var(--ink)}
+.btn svg{width:18px;height:18px}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:60;transition:background .3s,box-shadow .3s}
+.nav.solid{background:rgba(246,239,225,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line)}
+.nav-in{display:flex;align-items:center;gap:18px;height:72px}
+.logo{display:flex;align-items:center;text-decoration:none}
+.logo svg{height:44px;width:auto}
+.nav .logo .lt{fill:#fff}.nav .logo .ring{stroke:#fff}
+.nav.solid .logo .lt{fill:var(--ink)}.nav.solid .logo .ring{stroke:var(--ink)}
+.links{display:flex;gap:4px;margin-left:auto;list-style:none}
+.links a{display:block;padding:9px 14px;border-radius:99px;text-decoration:none;font-weight:700;font-size:14.5px;color:#fff;transition:background .2s}
+.nav.solid .links a{color:var(--ink)}
+.links a:hover{background:rgba(255,255,255,.14)}
+.nav.solid .links a:hover{background:rgba(15,42,48,.07)}
+.nav .cta{padding:11px 18px;font-size:14px}
+.burger{display:none;margin-left:auto;width:46px;height:46px;border-radius:14px;background:rgba(255,255,255,.14);position:relative}
+.nav.solid .burger{background:var(--ink)}
+.burger i{position:absolute;left:13px;right:13px;height:2px;background:#fff;border-radius:2px;transition:.3s}
+.burger i:nth-child(1){top:16px}.burger i:nth-child(2){top:22px}.burger i:nth-child(3){top:28px}
+.nav.open .burger i:nth-child(1){top:22px;transform:rotate(45deg)}
+.nav.open .burger i:nth-child(2){opacity:0}
+.nav.open .burger i:nth-child(3){top:22px;transform:rotate(-45deg)}
+
+/* HERO */
+.hero{min-height:100svh;display:flex;align-items:flex-end;color:#fff;overflow:hidden;padding:0}
+.hero .bg{position:absolute;inset:0}
+.hero .bg img{width:100%;height:100%;object-fit:cover;transform:scale(1.08);animation:hz 18s ease-out forwards}
+@keyframes hz{to{transform:scale(1)}}
+.hero .bg:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,42,48,.55) 0%,rgba(15,42,48,.25) 35%,rgba(15,42,48,.92) 100%)}
+.hero .wrap{position:relative;z-index:2;padding-top:140px;padding-bottom:150px;width:100%}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:99px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);backdrop-filter:blur(8px);font-size:13.5px;font-weight:700}
+.chip .dot{width:8px;height:8px;border-radius:50%;background:#7ee2b0;box-shadow:0 0 0 0 rgba(126,226,176,.7);animation:pl 2s infinite}
+.chip.closed .dot{background:var(--coral);animation:none}
+@keyframes pl{70%{box-shadow:0 0 0 9px rgba(126,226,176,0)}100%{box-shadow:0 0 0 0 rgba(126,226,176,0)}}
+.hero h1{font-size:clamp(50px,9.5vw,118px);font-weight:900;max-width:11ch;line-height:.95}
+.hero h1 em{font-style:italic;font-weight:500;color:#9fe3c2}
+.hero p{max-width:540px;font-size:18px;margin:22px 0 30px;color:rgba(255,255,255,.88)}
+.hero .btns{display:flex;flex-wrap:wrap;gap:12px}
+.wave{position:absolute;left:0;right:0;bottom:-1px;z-index:3;line-height:0}
+.wave svg{width:200%;height:90px;animation:wv 14s linear infinite}
+.wave.b svg{animation-duration:22s;opacity:.55;position:absolute;bottom:0}
+@keyframes wv{to{transform:translateX(-50%)}}
+
+/* MARQUEE */
+.mq{background:var(--ink);color:var(--sand);overflow:hidden;padding:16px 0;border-top:1px solid rgba(255,255,255,.06)}
+.mq-in{display:flex;gap:44px;white-space:nowrap;width:max-content;animation:mq 34s linear infinite}
+.mq span{font-family:var(--fd);font-size:22px;font-style:italic;display:inline-flex;align-items:center;gap:44px}
+.mq span:after{content:"✺";color:var(--surf2);font-style:normal;font-size:16px}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* ABOUT */
+.about{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+.stack{position:relative;height:560px}
+.stack figure{position:absolute;border-radius:24px;overflow:hidden;box-shadow:0 30px 60px rgba(15,42,48,.22)}
+.stack figure img{width:100%;height:100%;object-fit:cover}
+.stack .a{left:0;top:0;width:72%;height:76%}
+.stack .b{right:0;bottom:0;width:52%;height:52%;border:8px solid var(--sand)}
+.stack .badge{position:absolute;left:6%;bottom:4%;background:var(--surf);color:#fff;border-radius:50%;width:132px;height:132px;display:grid;place-items:center;text-align:center;font-family:var(--fd);font-size:15px;line-height:1.15;font-weight:700;transform:rotate(-10deg);box-shadow:0 16px 30px rgba(47,158,106,.4)}
+.stack .badge b{display:block;font-size:40px;line-height:1}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px}
+.fact{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 18px;display:flex;gap:12px;align-items:flex-start}
+.fact .i{flex:none;width:40px;height:40px;border-radius:12px;background:var(--foam);display:grid;place-items:center;font-size:20px}
+.fact b{display:block;font-size:15px}
+.fact span{font-size:13.5px;color:var(--mute);line-height:1.4;display:block}
+
+/* BEERS */
+.beers{background:var(--ink);color:var(--sand);overflow:hidden}
+.beers .h2 em{color:var(--surf2)}
+.beers .lead{color:rgba(246,239,225,.7)}
+.bhead{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:28px}
+.filters{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:4px;margin-bottom:22px}
+.filters::-webkit-scrollbar{display:none}
+.filters button{flex:none;padding:10px 16px;border-radius:99px;border:1px solid rgba(246,239,225,.2);font-weight:700;font-size:14px;color:rgba(246,239,225,.8);transition:.2s}
+.filters button.on{background:var(--sand);color:var(--ink);border-color:var(--sand)}
+.bgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.beer{position:relative;background:var(--ink2);border:1px solid rgba(246,239,225,.08);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;transition:transform .25s,border-color .25s;animation:in .4s both}
+.beer:hover{transform:translateY(-4px);border-color:rgba(70,179,138,.5)}
+@keyframes in{from{opacity:0;transform:translateY(10px)}}
+.beer .ph{height:170px;background:linear-gradient(135deg,#1b4a54,#0f2a30);position:relative;overflow:hidden}
+.beer .ph img{width:100%;height:100%;object-fit:cover}
+.beer .ph .glass{position:absolute;inset:0;display:grid;place-items:center;font-size:64px;opacity:.9}
+.beer .tags{position:absolute;top:10px;left:10px;display:flex;gap:6px;flex-wrap:wrap}
+.beer .tag{font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;background:rgba(15,42,48,.75);backdrop-filter:blur(6px);color:#fff;padding:4px 8px;border-radius:6px}
+.beer .tag.g{background:var(--surf)}
+.beer .tx{padding:16px 16px 18px}
+.beer h3{font-size:21px;margin-bottom:4px}
+.beer p{font-size:14px;color:rgba(246,239,225,.65);line-height:1.45}
+.meter{display:flex;gap:4px;margin-top:12px;align-items:center;font-size:11.5px;font-weight:700;color:rgba(246,239,225,.55);letter-spacing:.04em;text-transform:uppercase}
+.meter i{width:16px;height:6px;border-radius:3px;background:rgba(246,239,225,.15)}
+.meter i.on{background:var(--sun)}
+.meter span{margin-right:6px}
+.quiz{margin-top:44px;background:linear-gradient(135deg,var(--sea),#0d3f4b);border-radius:26px;padding:34px;display:grid;grid-template-columns:.9fr 1.1fr;gap:34px;align-items:center;position:relative;overflow:hidden}
+.quiz:before{content:"";position:absolute;right:-80px;top:-80px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(70,179,138,.35),transparent 70%)}
+.quiz h3{font-size:clamp(28px,4vw,40px)}
+.quiz h3 em{color:#9fe3c2;font-weight:500}
+.quiz p{color:rgba(246,239,225,.75);margin-top:10px}
+.qbox{position:relative;background:rgba(15,42,48,.45);border:1px solid rgba(246,239,225,.12);border-radius:20px;padding:22px;min-height:230px}
+.qstep{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#9fe3c2}
+.qq{font-family:var(--fd);font-size:24px;margin:8px 0 14px}
+.qopts{display:grid;gap:8px}
+.qopts button{text-align:left;padding:14px 16px;border-radius:14px;background:rgba(246,239,225,.08);border:1px solid rgba(246,239,225,.12);font-weight:700;display:flex;gap:12px;align-items:center;transition:.2s}
+.qopts button:hover{background:rgba(246,239,225,.16);border-color:#9fe3c2}
+.qopts button span{font-size:22px}
+.qres{display:flex;gap:18px;align-items:center;animation:in .4s both}
+.qres img,.qres .gl{flex:none;width:110px;height:140px;border-radius:14px;object-fit:cover;background:var(--ink2);display:grid;place-items:center;font-size:54px}
+.qres h4{font-family:var(--fd);font-size:28px;line-height:1.05}
+.qres p{font-size:14.5px}
+.qres .again{margin-top:12px;font-weight:800;color:#9fe3c2;text-decoration:underline;text-underline-offset:4px}
+
+/* PINCHOS */
+.pin-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.tape{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:150px;gap:10px}
+.tape figure{border-radius:16px;overflow:hidden;position:relative}
+.tape figure:nth-child(1){grid-row:span 2}
+.tape figure:nth-child(5){grid-column:span 2}
+.tape img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.tape figure:hover img{transform:scale(1.07)}
+.gift{display:flex;gap:16px;align-items:center;background:#fff;border:1.5px dashed var(--surf);border-radius:18px;padding:18px 20px;margin:24px 0}
+.gift .ic{flex:none;width:58px;height:58px;border-radius:16px;background:var(--surf);color:#fff;display:grid;place-items:center;font-size:28px}
+.gift b{font-family:var(--fd);font-size:21px;display:block;line-height:1.1}
+.gift span{color:var(--mute);font-size:14.5px}
+.menu-list{list-style:none;columns:2;column-gap:28px}
+.menu-list li{break-inside:avoid;padding:11px 0;border-bottom:1px solid var(--line);display:flex;gap:10px;align-items:baseline;font-weight:700}
+.menu-list li small{color:var(--mute);font-weight:500;font-size:13px}
+
+/* SEA / PLANES */
+.sea{background:linear-gradient(180deg,var(--foam),var(--sand));}
+.seapanel{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;margin-bottom:34px}
+.now{background:var(--ink);color:var(--sand);border-radius:26px;padding:30px;position:relative;overflow:hidden;min-height:250px}
+.now .bgw{position:absolute;left:0;right:0;bottom:-2px;opacity:.35;line-height:0}
+.now .bgw svg{width:200%;height:70px;animation:wv 9s linear infinite}
+.now .kick{color:#9fe3c2}
+.now .verdict{font-family:var(--fd);font-size:clamp(28px,3.6vw,40px);line-height:1.08;margin:12px 0 20px;max-width:16ch}
+.now .verdict em{color:#9fe3c2;font-weight:500}
+.meas{display:flex;gap:10px;flex-wrap:wrap;position:relative}
+.meas div{background:rgba(246,239,225,.08);border:1px solid rgba(246,239,225,.12);border-radius:14px;padding:10px 14px;min-width:110px}
+.meas b{display:block;font-family:var(--fd);font-size:26px;line-height:1.1}
+.meas span{font-size:12px;color:rgba(246,239,225,.6);font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.mini{border-radius:26px;overflow:hidden;position:relative;min-height:250px}
+.mini img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.mini div{position:absolute;inset:auto 0 0 0;padding:22px;color:#fff;background:linear-gradient(transparent,rgba(15,42,48,.85))}
+.mini b{font-family:var(--fd);font-size:24px;display:block}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.plan{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:8px;transition:transform .25s,box-shadow .25s;text-decoration:none}
+.plan:hover{transform:translateY(-4px);box-shadow:0 18px 36px rgba(15,42,48,.1)}
+.plan .top{display:flex;justify-content:space-between;align-items:center}
+.plan .e{font-size:28px}
+.plan .min{font-size:12.5px;font-weight:800;color:var(--surf);background:var(--foam);padding:5px 10px;border-radius:99px}
+.plan h3{font-size:22px}
+.plan p{font-size:14.5px;color:var(--mute);line-height:1.45}
+.plan .go{margin-top:auto;font-weight:800;font-size:13.5px;color:var(--sea)}
+
+/* FUTBOL */
+.foot{background:#fff}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.countdown{display:flex;gap:8px;margin:18px 0 24px}
+.countdown div{background:var(--ink);color:var(--sand);border-radius:14px;padding:12px 6px;min-width:72px;text-align:center}
+.countdown b{display:block;font-family:var(--fd);font-size:34px;line-height:1;font-variant-numeric:tabular-nums}
+.countdown span{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;opacity:.6}
+.match{display:grid;grid-template-columns:76px 1fr auto;gap:14px;align-items:center;padding:16px;border:1px solid var(--line);border-radius:18px;margin-bottom:10px;background:var(--sand)}
+.match.first{background:var(--foam);border-color:var(--surf)}
+.md{text-align:center;border-right:1px solid var(--line);padding-right:12px}
+.md small{display:block;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.md b{font-family:var(--fd);font-size:32px;line-height:1}
+.mt{font-weight:800;font-size:16.5px;line-height:1.3}
+.mt .rs{color:#c8102e}
+.mt small{display:block;color:var(--mute);font-weight:600;font-size:12.5px;margin-top:3px}
+.match .btn{padding:10px 14px;font-size:13px}
+.fans{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fans figure{border-radius:18px;overflow:hidden;aspect-ratio:4/3}
+.fans figure:first-child{grid-column:span 2;aspect-ratio:16/9}
+.fans img{width:100%;height:100%;object-fit:cover}
+.f1{margin-top:12px;display:flex;gap:12px;align-items:center;background:var(--ink);color:var(--sand);border-radius:16px;padding:14px 18px;font-size:14.5px}
+.f1 b{color:#9fe3c2}
+
+/* TAKEAWAY */
+.take{display:grid;grid-template-columns:.8fr 1.2fr;gap:0;background:var(--sun);border-radius:28px;overflow:hidden;color:var(--ink)}
+.take img{width:100%;height:100%;object-fit:cover;min-height:300px}
+.take div{padding:40px}
+.take h3{font-size:clamp(30px,4vw,46px)}
+.take p{margin:12px 0 22px;font-size:16.5px;max-width:460px}
+
+/* REVIEWS */
+.reviews{background:var(--ink);color:var(--sand);overflow:hidden}
+.reviews .h2 em{color:var(--surf2)}
+.score{display:flex;align-items:center;gap:18px;margin-bottom:34px}
+.score .n{font-family:var(--fd);font-size:84px;font-weight:900;line-height:.9}
+.stars{color:var(--sun);font-size:22px;letter-spacing:3px}
+.score small{color:rgba(246,239,225,.6);font-weight:600}
+.rtrack{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px;scrollbar-width:none}
+.rtrack::-webkit-scrollbar{display:none}
+.rv{flex:none;width:min(380px,84vw);scroll-snap-align:start;background:var(--ink2);border:1px solid rgba(246,239,225,.08);border-radius:22px;padding:24px;display:flex;flex-direction:column;gap:14px}
+.rv q{font-family:var(--fd);font-size:19px;line-height:1.4;quotes:"“" "”"}
+.rv .who{display:flex;gap:12px;align-items:center;margin-top:auto}
+.rv .av{width:42px;height:42px;border-radius:50%;background:var(--surf);display:grid;place-items:center;font-weight:800;color:#fff}
+.rv .who b{display:block;font-size:14.5px}
+.rv .who span{font-size:12.5px;color:rgba(246,239,225,.55)}
+.rnav{display:flex;gap:10px;margin-top:20px}
+.rnav button{width:48px;height:48px;border-radius:50%;border:1px solid rgba(246,239,225,.25);font-size:20px}
+.rnav button:hover{background:var(--sand);color:var(--ink)}
+
+/* GALLERY */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:210px;gap:10px}
+.gal button{border-radius:16px;overflow:hidden;cursor:zoom-in}
+.gal button:nth-child(1){grid-column:span 2;grid-row:span 2}
+.gal button:nth-child(6){grid-column:span 2}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.gal button:hover img{transform:scale(1.06)}
+.lb{position:fixed;inset:0;z-index:100;background:rgba(10,24,28,.95);display:none;align-items:center;justify-content:center;padding:20px}
+.lb.on{display:flex}
+.lb img{max-width:100%;max-height:86vh;border-radius:14px}
+.lb button{position:absolute;color:#fff;font-size:34px;width:54px;height:54px;border-radius:50%;background:rgba(255,255,255,.1)}
+.lb .x{top:18px;right:18px}.lb .pv{left:14px}.lb .nx{right:14px}
+
+/* VISIT */
+.visit{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:28px}
+.hours{list-style:none;margin-top:12px}
+.hours li{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid var(--line);font-size:15px}
+.hours li:last-child{border:0}
+.hours li.td{color:var(--surf);font-weight:800}
+.hours li span:last-child{text-align:right}
+.map{border-radius:24px;overflow:hidden;border:1px solid var(--line);min-height:380px}
+.map iframe{width:100%;height:100%;min-height:380px;border:0}
+.addr{display:flex;flex-direction:column;gap:12px;margin:18px 0 22px}
+.addr div{display:flex;gap:12px;align-items:center;font-weight:700}
+.addr div span{width:38px;height:38px;border-radius:12px;background:var(--foam);display:grid;place-items:center}
+.cbtns{display:flex;gap:10px;flex-wrap:wrap}
+
+footer{background:var(--ink);color:rgba(246,239,225,.7);padding:56px 0 110px;text-align:center;font-size:14px}
+footer svg{height:56px;margin:0 auto 16px}
+footer .lt{fill:var(--sand)}footer .ring{stroke:var(--sand)}
+footer a{color:var(--sand)}
+
+.fab{position:fixed;right:18px;bottom:18px;z-index:70;width:60px;height:60px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 12px 30px rgba(0,0,0,.3);transition:transform .2s}
+.fab:hover{transform:scale(1.08)}
+.fab svg{width:30px;height:30px;fill:#fff}
+
+.rv-in{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s}
+.rv-in.vis{opacity:1;transform:none}
+
+@media (max-width:960px){
+  .links,.nav .cta{display:none}
+  .burger{display:block}
+  .nav.open{background:var(--sand)}
+  .nav.open .logo .lt{fill:var(--ink)}.nav.open .logo .ring{stroke:var(--ink)}
+  .nav.open .burger{background:var(--ink)}
+  .nav.open .links{display:flex;position:fixed;top:72px;left:0;right:0;flex-direction:column;background:var(--sand);padding:10px 22px 26px;box-shadow:0 20px 40px rgba(15,42,48,.15);gap:2px}
+  .nav.open .links a{color:var(--ink);font-size:19px;padding:14px 6px;border-bottom:1px solid var(--line);border-radius:0;font-family:var(--fd)}
+  .about,.pin-grid,.fgrid,.visit,.seapanel,.quiz,.take{grid-template-columns:1fr}
+  .stack{height:440px}
+  .plans{grid-template-columns:1fr 1fr}
+  .gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px}
+  .gal button:nth-child(6){grid-column:auto}
+  section{padding:72px 0}
+  .take div{padding:28px}
+}
+@media (max-width:560px){
+  .facts{grid-template-columns:1fr}
+  .plans{grid-template-columns:1fr}
+  .menu-list{columns:1}
+  .match{grid-template-columns:64px 1fr}
+  .match .btn{grid-column:1/-1}
+  .countdown div{min-width:0;flex:1}
+  .quiz{padding:22px}
+  .qres{flex-direction:column;align-items:flex-start}
+  .stack{height:380px}
+  .stack .badge{width:108px;height:108px;font-size:13px}
+  .stack .badge b{font-size:32px}
+  .hero .wrap{padding-bottom:120px}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="wa" viewBox="0 0 32 32"><path d="M16 3C8.8 3 3 8.7 3 15.8c0 2.3.6 4.5 1.8 6.4L3 29l7-1.8c1.8 1 3.9 1.5 6 1.5 7.2 0 13-5.7 13-12.8S23.2 3 16 3zm0 23.4c-1.9 0-3.8-.5-5.4-1.5l-.4-.2-4.1 1.1 1.1-4-.3-.4c-1.1-1.7-1.6-3.6-1.6-5.6 0-5.9 4.8-10.6 10.7-10.6s10.7 4.8 10.7 10.6-4.8 10.6-10.7 10.6zm5.9-7.9c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.6.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.7s1.2 3.2 1.4 3.4c.2.2 2.4 3.6 5.7 5 .8.3 1.4.5 1.9.7.8.3 1.5.2 2.1.1.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.7-.5z"/></symbol>
+  <symbol id="logo" viewBox="0 0 220 84"><ellipse class="ring" cx="110" cy="42" rx="106" ry="38" fill="none" stroke-width="3"/><ellipse class="ring" cx="110" cy="42" rx="99" ry="31" fill="none" stroke-width="1.2" opacity=".6"/><text class="lt" x="110" y="31" text-anchor="middle" font-family="Manrope,Arial" font-weight="800" font-size="11" letter-spacing="4.5">CERVECERÍA</text><text class="lt" x="110" y="62" text-anchor="middle" font-family="Fraunces,Georgia" font-weight="900" font-size="32" letter-spacing="3">MOANA</text></symbol>
+</svg>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="#inicio" aria-label="Cervecería Moana"><svg><use href="#logo"/></svg></a>
+    <ul class="links" id="links">
+      <li><a href="#casa">La casa</a></li>
+      <li><a href="#cervezas">Cervezas</a></li>
+      <li><a href="#pinchos">Pinchos</a></li>
+      <li><a href="#playa">La playa</a></li>
+      <li><a href="#futbol">Fútbol</a></li>
+      <li><a href="#opiniones">Opiniones</a></li>
+      <li><a href="#visitanos">Visítanos</a></li>
+    </ul>
+    <a class="btn p cta" href="#visitanos">Cómo llegar</a>
+    <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false"><i></i><i></i><i></i></button>
+  </div>
+</header>
+
+<main id="inicio">
+<section class="hero">
+  <div class="bg"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9QOsTPEqr2MP9a0fr2qjKywCD6CJgrwj41CPIOC6FPc1CsBrDlvzQqgpl9HSuymbG9G2_vtdW2g7N-WSjSRCIyA-PJ_D8OG2-WCoELqrxp562Hi6aIpjVf3koBpWZ56LgT3leBD7CGCDR0M=w2000-h1400-k-no" alt="La puerta de la Cervecería Moana llena de gente" fetchpriority="high"></div>
+  <div class="wrap">
+    <div class="chips">
+      <span class="chip" id="openChip"><i class="dot"></i><span id="openTxt">Horario</span></span>
+      <span class="chip" id="seaChip">🌊 A 2 minutos de San Lorenzo</span>
+    </div>
+    <h1>Cervezas frías <em>a un paseo</em> del mar</h1>
+    <p>Más de veinte cervezas bien tiradas, un pincho de la casa con cada consumición y el Sporting en pantalla grande. En La Arena, a dos calles de la playa.</p>
+    <div class="btns">
+      <a class="btn p" href="#cervezas">Ver las cervezas</a>
+      <a class="btn l" href="#futbol">Próximo partido</a>
+    </div>
+  </div>
+  <div class="wave b"><svg viewBox="0 0 2880 90" preserveAspectRatio="none"><path fill="#f6efe1" d="M0 50c240-40 480-40 720 0s480 40 720 0 480-40 720 0 480 40 720 0v40H0z"/></svg></div>
+  <div class="wave"><svg viewBox="0 0 2880 90" preserveAspectRatio="none"><path fill="#f6efe1" d="M0 60c180-30 360-30 540 0s360 30 540 0 360-30 540 0 360 30 540 0 360-30 540 0 180 15 180 15v30H0z"/></svg></div>
+</section>
+
+<div class="mq" aria-hidden="true"><div class="mq-in" id="mq"></div></div>
+
+<!-- LA CASA -->
+<section id="casa">
+  <div class="wrap about">
+    <div class="stack rv-in">
+      <figure class="a"><img loading="lazy" src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9TOmbXbFLN-CrjkjDBMQo5wc8qfcKn8gWzVf3WZp65VRzuoKM4Tzyw6_oz1AolfD8ZJRiPQLCQO2dNAyAqjxBUsFYOvrqoViBYVXGMBDki5kg2DR9_5dpnE8ln6hXLG8RE5uYQvHQ=w1100-h900-k-no" alt="Zona de sofás con la tabla de surf en la pared"></figure>
+      <figure class="b"><img loading="lazy" src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9RbvV3Kn3bv5nCCSv9U2uaB_Z_obGPBUFfUSNcFMBnaJq-AjNb7QMYzOgrxFl9GRB9v5jg8DTcju2D7pZFhDxFeBl_gYL7m5hPLGmNXGds3TPA8XvvxxWAT7IIRgjTHBZgcRlYMMk7tn-o=w800-h700-k-no" alt="Viendo el fútbol en la Moana"></figure>
+      <div class="badge"><div><b>4,7</b>en Google<br>★★★★★</div></div>
+    </div>
+    <div class="rv-in">
+      <span class="kick">La casa de Omar</span>
+      <h2 class="h2">Un bar de barrio <em>con alma de playa</em></h2>
+      <p class="lead">En la Moana te tratan como en casa desde la primera caña. Omar está detrás de la barra, se sabe el nombre de medio barrio y, si vienes de fuera, te dice qué hacer por Gijón. Al fondo hay una zona de sofás para alargar la tarde sin prisa.</p>
+      <div class="facts">
+        <div class="fact"><span class="i">🍺</span><div><b>Más de 20 cervezas</b><span>De grifo, de botella y artesanas, siempre bien frías.</span></div></div>
+        <div class="fact"><span class="i">🥪</span><div><b>Pincho con cada consumición</b><span>Sale de la cocina, no de una bolsa.</span></div></div>
+        <div class="fact"><span class="i">🌾</span><div><b>Cerveza sin gluten</b><span>Para que nadie se quede sin su caña.</span></div></div>
+        <div class="fact"><span class="i">🐶</span><div><b>Tu perro también entra</b><span>Ambiente para todos, mascotas incluidas.</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERVEZAS -->
+<section id="cervezas" class="beers">
+  <div class="wrap">
+    <div class="bhead rv-in">
+      <div><span class="kick" style="color:var(--surf2)">La nevera de la Moana</span><h2 class="h2">Elige tu <em>cerveza</em></h2>
+      <p class="lead">Del grifo de toda la vida a las artesanas y de abadía. Filtra por lo que te apetezca o deja que te recomendemos una.</p></div>
+    </div>
+    <div class="filters" id="filters"></div>
+    <div class="bgrid" id="bgrid"></div>
+
+    <div class="quiz rv-in">
+      <div>
+        <span class="kick" style="color:#9fe3c2">¿No sabes cuál pedir?</span>
+        <h3>Dos preguntas y <em>te la elegimos</em></h3>
+        <p>Como haría Omar en la barra: nos dices qué te apetece y te decimos qué pedirte.</p>
+      </div>
+      <div class="qbox" id="qbox"></div>
+    </div>
+  </div>
+</section>
+
+<!-- PINCHOS -->
+<section id="pinchos">
+  <div class="wrap pin-grid">
+    <div class="rv-in">
+      <span class="kick">De la cocina</span>
+      <h2 class="h2">El pincho <em>va de regalo</em></h2>
+      <p class="lead">Es lo que más repite la gente en las reseñas: con cada consumición llega un pincho de verdad, de los que hacen que pidas otra.</p>
+      <div class="gift"><span class="ic">🎁</span><div><b>Una caña, un pincho</b><span>Con cada consumición, sin pedirlo. Así de fácil.</span></div></div>
+      <ul class="menu-list">
+        <li>Albóndigas <small>caseras</small></li>
+        <li>Lacón con cachelos</li>
+        <li>Tosta de tomate natural</li>
+        <li>Pollo con lechuga</li>
+        <li>Salsa de queso Cabrales</li>
+        <li>Pinchín col vino</li>
+        <li>Hamburguesitas</li>
+        <li>Bocadillitos variados</li>
+      </ul>
+    </div>
+    <div class="tape rv-in">
+      <figure><img loading="lazy" src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9TGkSpnLahPiz8QN6EMyFdiZT6byPx9gNXS9lrgrOJP_1MWxAF0PlJFrT02AAVEtir0P2spc0K0PbaFdAJVYYg3Dh2vksu3NkYvkojMAQ78aBFN2iFRFCaibq7vqg3tlq9U0Wdt=w700-h900-k-no" alt="Bocadillitos de la casa"></figure>
+      <figure><img loading="lazy" src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9SZfB_XCuzpP-4Q4OSqSdSfXUW1k-kSKD5SXZ6Bvw8EFxvsq3PNt9brUtXNBVU1nlJsmAyAykHU0v1EdLxFcuBHaW6B45cHdjkOHZi_gt2TcjvIQMZv7vOu8iT4e6qYChbC1i91=w500-h400-k-no" alt="Hamburguesitas"></figure>
+      <figure><img loading="lazy" src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9QHI8dPzct50SUvhjpKZThpetKbApwHsSDwKsfA8paQheBkFOcxvbBSKLc7ssBgQm-iOGl8ugo7AeCPiMdz4fLeuOe4qHpEKu9iCTzjxQBm6ScJpuffU8M1aVmL4aGlRFvR8b291w=w500-h400-k-no" alt="Tostas gratinadas"></figure>
+      <figure><img loading="lazy" src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9RPAcnj9kCuCI-doqoLcuOrmgvoGYbifC9uiaLnpGbfm0VVPU7Tfs8TgRv9all553YK8rAVdsZI3AXk2DhDaFexiwe9kRkucsVrNBIy8h02PMk4_QCPYR75CmjuXKjguleEL9PZDQ=w500-h400-k-no" alt="Pinchos con patatas"></figure>
+      <figure><img loading="lazy" src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9SKgeX97ZKlOfXzzJzNqGuO98c4Fu9JWhodUsqZxsx-S-DJzOwFF33yKNq1-zL-cPFVAvZLTyraUDdlJ6dqxHnuU3ioR3tWJkalMzjr9ehM75QM1IL3Pj50xlKchCepV1ZBk0Ba=w900-h400-k-no" alt="Bandeja de pinchos"></figure>
+      <figure><img loading="lazy" src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9RNsf7msmrnFUTYiwrDlbSKWA1CbHc6o6MWQyTCwVnETRTpEl4NaEdVNdr0AayYTn8J8-GILXhqd4HueJvNSrpLZPW5zNhyHqfTcTOW6-jqb1kvvBb3G5jxFyuLwsscoPbu4zL-GA=w500-h400-k-no" alt="Pincho de pollo con lechuga"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- PLAYA / PLANES -->
+<section id="playa" class="sea">
+  <div class="wrap">
+    <div class="rv-in" style="margin-bottom:28px">
+      <span class="kick">Moana, en hawaiano, es "océano"</span>
+      <h2 class="h2">La playa, <em>ahora mismo</em></h2>
+      <p class="lead">Estamos a dos minutos de San Lorenzo. Mira cómo está el mar antes de venir y, si eres de fuera, aquí tienes planes a un paseo del bar.</p>
+    </div>
+    <div class="seapanel">
+      <div class="now rv-in">
+        <span class="kick">San Lorenzo · en directo</span>
+        <div class="verdict" id="verdict">Mirando cómo está el mar…</div>
+        <div class="meas" id="meas"></div>
+        <div class="bgw"><svg viewBox="0 0 2880 70" preserveAspectRatio="none"><path fill="#46b38a" d="M0 40c240-30 480-30 720 0s480 30 720 0 480-30 720 0 480 30 720 0v30H0z"/></svg></div>
+      </div>
+      <div class="mini rv-in"><img loading="lazy" src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Te4doaiQFmhPI5JJDYwfOAPjj7DZXFL8ZXQIiMeDMCXgyLW8TXYsJ19SI55neH78AYRv9_yt6lkjo_oPmIpHamsGqe8xaVeARVBAgU6HkihgWEPK47og_lrsh4Rg9zp34cMNCYiQ=w900-h700-k-no" alt="Una cerveza en el muro de San Lorenzo"><div><b>La caña sabe mejor con vistas</b>Una de la Moana, con el Muro de fondo.</div></div>
+    </div>
+    <div class="plans" id="plans"></div>
+  </div>
+</section>
+
+<!-- FUTBOL -->
+<section id="futbol" class="foot">
+  <div class="wrap fgrid">
+    <div class="rv-in">
+      <span class="kick" style="color:#c8102e">Aquí se ve el Sporting</span>
+      <h2 class="h2">Los partidos, <em>en la Moana</em></h2>
+      <p class="lead">Pantallas en el bar, cerveza fría y ambiente de grada. Reserva tu sitio para el partido por WhatsApp.</p>
+      <div style="margin-top:22px;font-weight:800" id="nextLbl">Próximo partido</div>
+      <div class="countdown" id="cd"></div>
+      <div id="matches"></div>
+    </div>
+    <div class="rv-in">
+      <div class="fans">
+        <figure><img loading="lazy" src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9TXgpMSYW-cpzZdUQN5VW6_d3FMRUcPiWJKbhuPklcBaCLZOjy75tVwGWOJXaI_Yts8K_xU9-JUdTHW_d-RebcKOU2XLoaX9PDefi8L1RSwJohb7EZRD3CWF4_c8BcB7CWRZJg7tw=w1100-h700-k-no" alt="Afición del Sporting en la Moana"></figure>
+        <figure><img loading="lazy" src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9RK9HEG9QSpkn9pz4ivdkYiuDDcb0g3-8nYwm0rkV-yYMwIFWOQEsoI9ZLvwe1U1IErEV5y2RAeg9oK-VtvEQlKr4IMZjhRPgKVuEje0gjScieTntcEGwDZNEqbFFWly9TMcTcV=w700-h520-k-no" alt="Día de partido en la Moana"></figure>
+        <figure><img loading="lazy" src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Q8uySpF5VkL_k2KNf9MOf0HeLEq7w-MgnScV9HXad7Xnb6GGviX8Ncr7r9Og_DW1s30iFTm90ha4aFttKgiw7mkOfsv3rAleJJ54NSSjtWokNhNl6VA-kvDox2KlDWEvDS2ECF=w700-h520-k-no" alt="Bar lleno viendo el partido"></figure>
+      </div>
+      <div class="f1"><span style="font-size:24px">🏎️</span><span>Y no solo fútbol: también ponemos <b>la Fórmula 1</b> y los grandes eventos deportivos.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PARA LLEVAR -->
+<section style="padding-top:0;background:#fff">
+  <div class="wrap">
+    <div class="take rv-in">
+      <img loading="lazy" src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9QM4LOvAVDltSRB3CkfUBGVIHQEFaCF3dnMA56EahoZQ0_pV1mPrSQXZTebBKpdDuZszkQA92nPBcNs4IUB8OAfVxqTZjInXgQiLFhnp4DOTKAMeov3RtKI1iTuNThlkEDiXlyq=w900-h900-k-no" alt="Carta de botes fríos para llevar">
+      <div>
+        <span class="kick" style="color:var(--ink)">¿Te vas a la playa?</span>
+        <h3>Botes fríos <em style="font-weight:500">para llevar</em></h3>
+        <p>Pásate antes de bajar a San Lorenzo: refrescos y cervezas en bote, bien fríos, y café para llevar por las mañanas.</p>
+        <a class="btn d" id="waTake" href="#" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Pregúntanos por WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OPINIONES -->
+<section id="opiniones" class="reviews">
+  <div class="wrap">
+    <span class="kick" style="color:var(--surf2)">Lo que dicen de nosotros</span>
+    <h2 class="h2">Los que vienen, <em>vuelven</em></h2>
+    <div class="score rv-in"><div class="n">4,7</div><div><div class="stars">★★★★★</div><small>59 reseñas en Google</small></div></div>
+    <div class="rtrack" id="rtrack"></div>
+    <div class="rnav"><button id="rPrev" aria-label="Anterior">←</button><button id="rNext" aria-label="Siguiente">→</button></div>
+  </div>
+</section>
+
+<!-- GALERIA -->
+<section id="fotos">
+  <div class="wrap">
+    <span class="kick">En fotos</span>
+    <h2 class="h2" style="margin-bottom:28px">Así es <em>la Moana</em></h2>
+    <div class="gal" id="gal">
+      <button type="button"><img loading="lazy" src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9QaZ1GN3b5r3emJyjd6cg1w6klf0BZf8OJS-zZkliqkcKjibYQ6xgGY5ReSWtFW76V3uokTlOdbMV_vM-OCVeF2wWuJMHPlDovQoQ5sYjzCCiTJPapXen1QGv9GA_xXX0DUDI1ssg=w1200-h900-k-no" alt="La barra con todas las cervezas"></button>
+      <button type="button"><img loading="lazy" src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9T_HLrBpQ8EobOVvZXT-gf2nC5O42VuFFz5ii972Z6Fq0oQz2ZkU37BY3_dAhabftC4FgTh5bmIYih1WQ0coaeafBtYGSJk4nqGpKPCQXpPGVYUky-sipqZKhYF14BdyTch6zSWfA=w600-h500-k-no" alt="Ocean Beer"></button>
+      <button type="button"><img loading="lazy" src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9TJV_x9DW9QdZ3lbbNGEGLZ7URWy5q87z_QdoL1qWP-eWHw-hzOFrmGeFUlntnJ9eOgKnaZUOaQarPAlrTMOblCe0-X_IuE7GrHL2oQyLVKHa-WYAcW_AfQp7sQavLQQhuRUXLjCg=w600-h500-k-no" alt="Una IPA frente a la playa"></button>
+      <button type="button"><img loading="lazy" src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9TPATzwfXMdLldkv1HllOkHviynqXYht2CaHoua8PCf2OnB9O7S2sgUMj0D70Lo3HYxV0yUliOpJ1zRgEh9enIS5owIe8mRU9EbmxBZQjjutiiD_4uLzqN0FLYv1wUXoOkF9aJX=w600-h500-k-no" alt="Bocadillitos"></button>
+      <button type="button"><img loading="lazy" src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Su_00aI3fucZJwtBFECtzMD1gAFyRs3qs02rp2E7m130P9rvuttxrWmF4OBWjEoiYhRCulUAHfKWgFAdfjZFFHw5zgM8AxjHYUvdI5EfcGTesWelHzXRzbt26va9ZCfVJGl9XYC0L9-JbL=w600-h500-k-no" alt="Vermut La Dolores"></button>
+      <button type="button"><img loading="lazy" src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9QS2wPVTcZ52BiONceqlNaU8uFClY_7OnJ15RKq-NZwUK0eHc_2uFod8f_R8THrPh4mpX3lsPQJ6btiJvgxiLAYfvQ9MbYbvOATFE0YjDhczFwCI66-aT5qsiHN6aeg6TPcjpA=w1200-h500-k-no" alt="El local por dentro"></button>
+      <button type="button"><img loading="lazy" src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9TLdmB9ezSA5AoAeL_6QwyUJpi0lCGBfXFdqtaLEzET3qYa9BOVOHGSEjOj-VxYQc1J4PQx6YTzctkRNMdPposMtewunF4z4hPRJmvyfBQq0EbvDjUuxayGSMue8Tj7eLLvVNkucA=w600-h500-k-no" alt="Hamburguesa de la casa"></button>
+      <button type="button"><img loading="lazy" src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9RfFEeds4xE0XrxCAZQASrNlpN0TjcCOZb5-vJWwINRfAexKOHnHpS0O9p6wS-7otFp-rfLtnZnQo76Qvlnq-M_5coSys0S7fAnEcOZHXnJsKC5zsDWFonb14ahPtxq98Vqqa_CHg=w600-h500-k-no" alt="Café de la Moana"></button>
+    </div>
+  </div>
+</section>
+
+<!-- VISITANOS -->
+<section id="visitanos" style="background:var(--foam)">
+  <div class="wrap">
+    <span class="kick">Calle Manso, 5 · La Arena</span>
+    <h2 class="h2" style="margin-bottom:28px">Ven a vernos</h2>
+    <div class="visit">
+      <div class="card rv-in">
+        <div class="addr">
+          <div><span>📍</span>C. Manso, 5 · 33203 Gijón</div>
+          <div><span>🌊</span>A dos calles de la playa de San Lorenzo</div>
+          <div><span>📞</span><a href="tel:+34619208236" style="text-decoration:none">619 20 82 36</a></div>
+        </div>
+        <b style="font-family:var(--fd);font-size:22px">Horario</b>
+        <ul class="hours" id="hours"></ul>
+        <div class="cbtns" style="margin-top:20px">
+          <a class="btn p" id="waMain" href="#" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>WhatsApp</a>
+          <a class="btn o" href="https://www.google.com/maps/search/?api=1&query=Cervecer%C3%ADa+Moana+Gij%C3%B3n&query_place_id=ChIJd97qi2B9Ng0RhqxO8ZW9Abk" target="_blank" rel="noopener">Cómo llegar</a>
+        </div>
+      </div>
+      <div class="map rv-in"><iframe loading="lazy" title="Mapa de la Cervecería Moana" src="https://www.google.com/maps?q=Cervecer%C3%ADa+Moana,+Calle+Manso+5,+Gij%C3%B3n&output=embed"></iframe></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <svg viewBox="0 0 220 84"><use href="#logo"/></svg>
+  <div>Cervecería Moana · C. Manso, 5 · Gijón · <a href="tel:+34619208236">619 20 82 36</a></div>
+  <div style="margin-top:8px;opacity:.6">Web de muestra hecha por Lace</div>
+</footer>
+
+<a class="fab" id="fab" href="#" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp"><svg><use href="#wa"/></svg></a>
+<div class="lb" id="lb"><img alt=""><button class="x" aria-label="Cerrar">×</button><button class="pv" aria-label="Anterior">‹</button><button class="nx" aria-label="Siguiente">›</button></div>
+
+<script>window.PH={"hero": "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9QOsTPEqr2MP9a0fr2qjKywCD6CJgrwj41CPIOC6FPc1CsBrDlvzQqgpl9HSuymbG9G2_vtdW2g7N-WSjSRCIyA-PJ_D8OG2-WCoELqrxp562Hi6aIpjVf3koBpWZ56LgT3leBD7CGCDR0M", "latas": "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9QM4LOvAVDltSRB3CkfUBGVIHQEFaCF3dnMA56EahoZQ0_pV1mPrSQXZTebBKpdDuZszkQA92nPBcNs4IUB8OAfVxqTZjInXgQiLFhnp4DOTKAMeov3RtKI1iTuNThlkEDiXlyq", "sofas": "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9TOmbXbFLN-CrjkjDBMQo5wc8qfcKn8gWzVf3WZp65VRzuoKM4Tzyw6_oz1AolfD8ZJRiPQLCQO2dNAyAqjxBUsFYOvrqoViBYVXGMBDki5kg2DR9_5dpnE8ln6hXLG8RE5uYQvHQ", "barra": "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9QS2wPVTcZ52BiONceqlNaU8uFClY_7OnJ15RKq-NZwUK0eHc_2uFod8f_R8THrPh4mpX3lsPQJ6btiJvgxiLAYfvQ9MbYbvOATFE0YjDhczFwCI66-aT5qsiHN6aeg6TPcjpA", "mahouplaya": "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Te4doaiQFmhPI5JJDYwfOAPjj7DZXFL8ZXQIiMeDMCXgyLW8TXYsJ19SI55neH78AYRv9_yt6lkjo_oPmIpHamsGqe8xaVeARVBAgU6HkihgWEPK47og_lrsh4Rg9zp34cMNCYiQ", "ocean": "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9T_HLrBpQ8EobOVvZXT-gf2nC5O42VuFFz5ii972Z6Fq0oQz2ZkU37BY3_dAhabftC4FgTh5bmIYih1WQ0coaeafBtYGSJk4nqGpKPCQXpPGVYUky-sipqZKhYF14BdyTch6zSWfA", "ipaplaya": "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9TJV_x9DW9QdZ3lbbNGEGLZ7URWy5q87z_QdoL1qWP-eWHw-hzOFrmGeFUlntnJ9eOgKnaZUOaQarPAlrTMOblCe0-X_IuE7GrHL2oQyLVKHa-WYAcW_AfQp7sQavLQQhuRUXLjCg", "mara": "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Qc6BudAhe_oJ2AsP70nMunhVwH-jhx658Rqu0qw43rkkPajGw82Pll3tw2_xOc4sayZgJCpH0qfEd42c63d55H1AAdWvQ_OVO-POWFWzVxb_px_Yqd-L4Yt6peNoP-m06Ly4GR", "botellas": "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9QaZ1GN3b5r3emJyjd6cg1w6klf0BZf8OJS-zZkliqkcKjibYQ6xgGY5ReSWtFW76V3uokTlOdbMV_vM-OCVeF2wWuJMHPlDovQoQ5sYjzCCiTJPapXen1QGv9GA_xXX0DUDI1ssg", "botellas2": "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Sg5bYH9rq_flBmNT875K1vB9CulBF2CbVwGAgzUCvLSMO_b28wXyitqIAX0STs2AlCNvvgMvrWR1xTjx_ca_BdqLd8GncJebu27li8WKglgLydqtJx9YhljZXIhKet_2ZLGeT8", "afic1": "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9TXgpMSYW-cpzZdUQN5VW6_d3FMRUcPiWJKbhuPklcBaCLZOjy75tVwGWOJXaI_Yts8K_xU9-JUdTHW_d-RebcKOU2XLoaX9PDefi8L1RSwJohb7EZRD3CWF4_c8BcB7CWRZJg7tw", "afic2": "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9RK9HEG9QSpkn9pz4ivdkYiuDDcb0g3-8nYwm0rkV-yYMwIFWOQEsoI9ZLvwe1U1IErEV5y2RAeg9oK-VtvEQlKr4IMZjhRPgKVuEje0gjScieTntcEGwDZNEqbFFWly9TMcTcV", "futbol": "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9RbvV3Kn3bv5nCCSv9U2uaB_Z_obGPBUFfUSNcFMBnaJq-AjNb7QMYzOgrxFl9GRB9v5jg8DTcju2D7pZFhDxFeBl_gYL7m5hPLGmNXGds3TPA8XvvxxWAT7IIRgjTHBZgcRlYMMk7tn-o", "p1": "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9SZfB_XCuzpP-4Q4OSqSdSfXUW1k-kSKD5SXZ6Bvw8EFxvsq3PNt9brUtXNBVU1nlJsmAyAykHU0v1EdLxFcuBHaW6B45cHdjkOHZi_gt2TcjvIQMZv7vOu8iT4e6qYChbC1i91", "p2": "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9TGkSpnLahPiz8QN6EMyFdiZT6byPx9gNXS9lrgrOJP_1MWxAF0PlJFrT02AAVEtir0P2spc0K0PbaFdAJVYYg3Dh2vksu3NkYvkojMAQ78aBFN2iFRFCaibq7vqg3tlq9U0Wdt", "p3": "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9RPAcnj9kCuCI-doqoLcuOrmgvoGYbifC9uiaLnpGbfm0VVPU7Tfs8TgRv9all553YK8rAVdsZI3AXk2DhDaFexiwe9kRkucsVrNBIy8h02PMk4_QCPYR75CmjuXKjguleEL9PZDQ", "p4": "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9RNsf7msmrnFUTYiwrDlbSKWA1CbHc6o6MWQyTCwVnETRTpEl4NaEdVNdr0AayYTn8J8-GILXhqd4HueJvNSrpLZPW5zNhyHqfTcTOW6-jqb1kvvBb3G5jxFyuLwsscoPbu4zL-GA", "p5": "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9QHI8dPzct50SUvhjpKZThpetKbApwHsSDwKsfA8paQheBkFOcxvbBSKLc7ssBgQm-iOGl8ugo7AeCPiMdz4fLeuOe4qHpEKu9iCTzjxQBm6ScJpuffU8M1aVmL4aGlRFvR8b291w", "p6": "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9TPATzwfXMdLldkv1HllOkHviynqXYht2CaHoua8PCf2OnB9O7S2sgUMj0D70Lo3HYxV0yUliOpJ1zRgEh9enIS5owIe8mRU9EbmxBZQjjutiiD_4uLzqN0FLYv1wUXoOkF9aJX", "p7": "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9SKgeX97ZKlOfXzzJzNqGuO98c4Fu9JWhodUsqZxsx-S-DJzOwFF33yKNq1-zL-cPFVAvZLTyraUDdlJ6dqxHnuU3ioR3tWJkalMzjr9ehM75QM1IL3Pj50xlKchCepV1ZBk0Ba", "burger": "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9TLdmB9ezSA5AoAeL_6QwyUJpi0lCGBfXFdqtaLEzET3qYa9BOVOHGSEjOj-VxYQc1J4PQx6YTzctkRNMdPposMtewunF4z4hPRJmvyfBQq0EbvDjUuxayGSMue8Tj7eLLvVNkucA", "burger2": "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9RNdvpoSHSiILfjPp5H317MaPQtihMuvHtlbNZxBhmmELm6YCFGkShE6r3avpgufcUTOXM2oBe5koBroiHT3QxLcsv4vCFAZtIquJVBas-6-xqz0zCDXbHia42nSWf2tdbsrOfy", "estrella": "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9SbrAFq068YBHsXmgsI6e6CsE0xsrLuh0XKdPxyMrn8_OtfMn2phIs_qu4uTTjT-WL4c_OsPKoNonqPOZkdeBOlv7-fgIsMTQ3zRVofYnFDGsy0qLClh5s5PG1lKkqhAvspfbGPOg", "c1906": "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9RwYox_mz70UZ7IRKBybESNCJMKwigGci6uZZGopIN_J30WRPbdjZNxEjYau24eTSsEbfZ7PnXmSlKnK3FelFkqrn5iMKPkPiSS-Z8Eyo3YVyIDY0_mmzh4yTd31rv45MIP_zr0", "judas": "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9R3f7keT7vOO1uorlsWWhdZ5FZ7Tbp0SPA7CqVYTe1B4eoHDdUCvL-LhnL4aSyEpBOiMEQbNDzUwISQ2hmuHgmRWpxbLbrYouagUDHGIi4jpGmNQtrzKkyIvkUZpI2_vlryJXChTQ", "voll": "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9SiJfQydFoki8C3bsiPdzZkUNwb7qDyy7K2-Ke7rIaQR2CATEuGLNYwfyGf4ArK0yI5XK2GKnEFBg-00-xrBFWLvB6-EbjKjkkzbwabe-idzRzmEflH4jsdInVYVYJ0TJnh-4G7", "vermut": "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Su_00aI3fucZJwtBFECtzMD1gAFyRs3qs02rp2E7m130P9rvuttxrWmF4OBWjEoiYhRCulUAHfKWgFAdfjZFFHw5zgM8AxjHYUvdI5EfcGTesWelHzXRzbt26va9ZCfVJGl9XYC0L9-JbL", "sidra": "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9RoUSwI5zqijTDid38TfddXFHGy-sVBaTG236LGutmSQrAFc_NkGS8mGKAkqCiINlWEf7xBJLpeFHa5uJ6MVbqxH_CyxuJTY75ZeVElWnzGHpRbORMv6LH1tleyDZdivd27yvy3", "eg": "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9RK6JRbn0h4w4YApD38buiY3QUpe98MV4K4oj-IcrC1XRdwH6XMJA0DjesKgMR6xaAS81zoJ4NAdcu7wtjU6B_7XwRRIMRi0R79lofG4K7XrOjSTMHXxdsRmThuotHHiz-NyuGY", "fans3": "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Q8uySpF5VkL_k2KNf9MOf0HeLEq7w-MgnScV9HXad7Xnb6GGviX8Ncr7r9Og_DW1s30iFTm90ha4aFttKgiw7mkOfsv3rAleJJ54NSSjtWokNhNl6VA-kvDox2KlDWEvDS2ECF", "caf": "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9RfFEeds4xE0XrxCAZQASrNlpN0TjcCOZb5-vJWwINRfAexKOHnHpS0O9p6wS-7otFp-rfLtnZnQo76Qvlnq-M_5coSys0S7fAnEcOZHXnJsKC5zsDWFonb14ahPtxq98Vqqa_CHg", "p8": "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9S-9IGzUeniZJs3nrL4diTGUZG9CHy1GCkY59ndmaDX_650pyo-4iWQAv4S4BTgIMpt1jucZZ1mUZnWSIP02QVyQkMlGoNVj2EfOg4EZXEEcTgZc3y6W4hsZmudkW2Rf-hRNN9b", "p9": "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Ry8w2pQy8Wy6heVSFJw2h4Fby1-2V_yyFOhLVff1qVIS8s-T1lxK_VzvQf68pjVgVv_x8STRYHEMnilF-kD4w9G6tOR7uyQlzKVlTtPppkoKmEuezIAlN32rRMHAR_iVe98XpBxbqb5Ggf", "radler": "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9SNPRnjBIoU7GQiz6P3nnS6f5f-ZTyC4nx-eH5E465hN8qpkq7FEv6RnvjQD5D32e566BEj5zA1Jmvn7GBI36qkNr2tAmjTFD7Nj8-O85nhNevy2zcAEisMw-DoEOVhNP-rznZS", "rubia": "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Ryy0NOrqEbSDiaKEZ_zjWS_VK-akz41-fGS-CNC9UhAV1cK9AvdHFRk_PrmqI7UpHQMe2AbAOLuFZRooz1RSBYGBdiGSY0ET2mZOPQRtqWCbOSWFwxOLnKFDMyQFJ0K44Mj3aO"};</script>
+<script>
+(function(){
+const $=(s,c=document)=>c.querySelector(s),$$=(s,c=document)=>[...c.querySelectorAll(s)];
+const PH=window.PH;
+const PHONE='34619208236';
+const wa=t=>`https://wa.me/${PHONE}?text=${encodeURIComponent(t)}`;
+
+/* nav */
+const nav=$('#nav'),bur=$('#burger');
+const onS=()=>nav.classList.toggle('solid',scrollY>40);addEventListener('scroll',onS,{passive:true});onS();
+bur.onclick=()=>{const o=nav.classList.toggle('open');bur.setAttribute('aria-expanded',o);bur.setAttribute('aria-label',o?'Cerrar menú':'Abrir menú')};
+$$('#links a').forEach(a=>a.onclick=()=>nav.classList.remove('open'));
+
+/* marquee */
+const mqt=['Pincho con cada consumición','Más de 20 cervezas','Cerveza sin gluten','El Sporting en pantalla','A dos calles de San Lorenzo','Sofás al fondo','Botes fríos para llevar','Se admiten perros'];
+$('#mq').innerHTML=[...mqt,...mqt].map(t=>`<span>${t}</span>`).join('');
+
+/* horario */
+const H={1:[['11:00','15:30'],['19:00','24:00']],2:[['11:00','15:30'],['19:00','24:00']],3:[['11:00','15:30'],['19:00','24:00']],4:[['11:00','15:30'],['19:00','24:00']],5:[['11:00','15:30'],['19:00','24:00']],6:[['12:00','16:00'],['19:00','24:00']],0:[['12:00','16:00']]};
+const DN=['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
+const mad=()=>{const d=new Date(new Date().toLocaleString('en-US',{timeZone:'Europe/Madrid'}));return{d:d.getDay(),m:d.getHours()*60+d.getMinutes()}};
+const tm=s=>{const[a,b]=s.split(':').map(Number);return a*60+b};
+const f=s=>s==='24:00'?'00:00':s;
+function openState(){const n=mad();for(const[a,b] of H[n.d]||[]){if(n.m>=tm(a)&&n.m<tm(b))return{open:true,until:b}}
+  for(const[a] of H[n.d]||[]){if(n.m<tm(a))return{open:false,next:'hoy a las '+a}}
+  for(let k=1;k<=7;k++){const d=(n.d+k)%7;if(H[d]&&H[d].length)return{open:false,next:(k===1?'mañana':'el '+DN[d].toLowerCase())+' a las '+H[d][0][0]}}}
+function renderHours(){const s=openState(),c=$('#openChip');c.classList.toggle('closed',!s.open);
+  $('#openTxt').textContent=s.open?`Abierto ahora · hasta las ${f(s.until)}`:`Cerrado · abrimos ${s.next}`;
+  const today=mad().d;
+  $('#hours').innerHTML=[1,2,3,4,5,6,0].map(d=>`<li class="${d===today?'td':''}"><span>${DN[d]}</span><span>${(H[d]||[]).map(([a,b])=>`${a}–${f(b)}`).join(' · ')||'Cerrado'}</span></li>`).join('')}
+renderHours();setInterval(renderHours,60000);
+
+/* cervezas */
+const B=[
+ {n:'Mahou 5 Estrellas',t:['rubia','grifo'],d:'La de toda la vida, de grifo y bien fría. Nunca falla.',c:2,img:'mahouplaya'},
+ {n:'1906 Reserva Especial',t:['caracter','grifo'],d:'La Milnueve de grifo: tostada, con cuerpo y sabor a malta.',c:4,img:'c1906'},
+ {n:'1906 Red Vintage',t:['caracter'],d:'Roja, intensa y con un punto dulce. Para los que saben.',c:5,img:'c1906'},
+ {n:'Estrella Galicia Especial',t:['rubia'],d:'Rubia gallega, equilibrada y muy refrescante.',c:2,img:'eg'},
+ {n:'Alhambra Reserva 1925',t:['rubia','caracter'],d:'Botella verde, rubia con cuerpo y final largo.',c:3,img:'botellas2'},
+ {n:'Judas',t:['caracter'],d:'Belga dorada fuerte. Engaña: entra suave y pega.',c:5,img:'judas'},
+ {n:'Grimbergen Double Ambrée',t:['caracter'],d:'De abadía, ámbar y con notas de caramelo.',c:4,img:'judas'},
+ {n:'Voll-Damm Doble Malta',t:['caracter'],d:'Märzen de doble malta, con mucho carácter.',c:4,img:'voll'},
+ {n:'Ocean Beer Lager',t:['artesana','rubia'],d:'Lager artesana que dedica sus beneficios a cuidar el océano. Muy Moana.',c:2,img:'ocean'},
+ {n:'18/70 La Rubia',t:['artesana','rubia'],d:'Artesana rubia, ligera y con mucho aroma.',c:3,img:'rubia'},
+ {n:'Amstel Radler',t:['sin','rubia'],d:'Cerveza con limón: la más fresca para un día de playa.',c:1,img:'radler'},
+ {n:'Estrella Galicia 0,0',t:['sin'],d:'Todo el sabor, sin alcohol.',c:2,img:'botellas'},
+ {n:'Ocean Beer 0,0',t:['sin','artesana'],d:'La versión sin alcohol de la artesana del océano.',c:2,img:'ocean'},
+ {n:'Cerveza sin gluten',t:['sin'],d:'Pregunta en barra: siempre tenemos para los celíacos.',c:2,glass:'🌾'},
+ {n:'Sidra natural Camín',t:['otros'],d:'Sidra asturiana, escanciada como manda la tradición.',c:2,img:'sidra'},
+ {n:'Vermut La Dolores',t:['otros'],d:'Vermut de los de antes, con su naranja y su aceituna.',c:3,img:'vermut'}
+];
+const FIL=[['all','Todas'],['grifo','De grifo'],['rubia','Rubias'],['caracter','Con carácter'],['artesana','Artesanas'],['sin','Sin alcohol / sin gluten'],['otros','Sidra y vermut']];
+let fl='all';
+const TAGN={grifo:'Grifo',artesana:'Artesana',sin:'0,0 / sin gluten',caracter:'Con carácter',otros:'Asturias & vermut'};
+function bimg(b,w,h){return b.img?`${PH[b.img]}=w${w}-h${h}-k-no`:null}
+function renderBeers(){
+  $('#filters').innerHTML=FIL.map(([k,l])=>`<button class="${k===fl?'on':''}" data-k="${k}">${l}</button>`).join('');
+  $$('#filters button').forEach(b=>b.onclick=()=>{fl=b.dataset.k;renderBeers()});
+  const L=B.filter(b=>fl==='all'||b.t.includes(fl));
+  $('#bgrid').innerHTML=L.map((b,i)=>`<article class="beer" style="animation-delay:${i*35}ms">
+    <div class="ph">${b.img?`<img loading="lazy" src="${bimg(b,600,400)}" alt="${b.n}">`:`<div class="glass">${b.glass||'🍺'}</div>`}
+      <div class="tags">${b.t.filter(t=>TAGN[t]).slice(0,2).map(t=>`<span class="tag ${t==='artesana'||t==='sin'?'g':''}">${TAGN[t]}</span>`).join('')}</div></div>
+    <div class="tx"><h3>${b.n}</h3><p>${b.d}</p>
+      <div class="meter"><span>Intensidad</span>${[1,2,3,4,5].map(x=>`<i class="${x<=b.c?'on':''}"></i>`).join('')}</div></div></article>`).join('');
+}
+renderBeers();
+
+/* quiz */
+const Q1=[['🌊','Algo ligero y fresquito','ligero'],['🔥','Con cuerpo y carácter','cuerpo'],['🚗','Sin alcohol, que conduzco','sin']];
+const Q2={ligero:[['🍺','Una clásica de grifo','Mahou 5 Estrellas'],['🌿','Algo artesano y diferente','Ocean Beer Lager'],['🍋','Con un toque de limón','Amstel Radler']],
+ cuerpo:[['🍞','Tostada y maltosa','1906 Reserva Especial'],['⚡','Fuerte de verdad','Judas'],['🍯','De abadía, con caramelo','Grimbergen Double Ambrée']],
+ sin:[['🍺','Que sepa a cerveza de siempre','Estrella Galicia 0,0'],['🌊','Artesana sin alcohol','Ocean Beer 0,0'],['🌾','Sin gluten, por favor','Cerveza sin gluten']]};
+const PAIR={'Mahou 5 Estrellas':'Con unas albóndigas de pincho, de libro.','Ocean Beer Lager':'Perfecta con la tosta de tomate natural.','Amstel Radler':'Ideal para llevar fresquita antes de bajar a la playa.','1906 Reserva Especial':'Pídela con el lacón con cachelos.','Judas':'Despacito y con la salsa de Cabrales.','Grimbergen Double Ambrée':'Con una hamburguesita de la casa.','Estrella Galicia 0,0':'Y el pincho, igual que todos.','Ocean Beer 0,0':'Con el pollo con lechuga, ligera y rica.','Cerveza sin gluten':'Pregunta en barra por el pincho apto.'};
+const qb=$('#qbox');
+function q1(){qb.innerHTML=`<div class="qstep">Pregunta 1 de 2</div><div class="qq">¿Qué te apetece hoy?</div><div class="qopts">${Q1.map(([e,t,k])=>`<button data-k="${k}"><span>${e}</span>${t}</button>`).join('')}</div>`;
+  $$('button',qb).forEach(b=>b.onclick=()=>q2(b.dataset.k))}
+function q2(k){qb.innerHTML=`<div class="qstep">Pregunta 2 de 2</div><div class="qq">¿Y de estilo?</div><div class="qopts">${Q2[k].map(([e,t,n])=>`<button data-n="${n}"><span>${e}</span>${t}</button>`).join('')}</div>`;
+  $$('button',qb).forEach(b=>b.onclick=()=>res(b.dataset.n))}
+function res(n){const b=B.find(x=>x.n===n);
+  qb.innerHTML=`<div class="qstep">Tu cerveza</div><div class="qres" style="margin-top:12px">${b.img?`<img src="${bimg(b,300,380)}" alt="${b.n}">`:`<div class="gl">${b.glass||'🍺'}</div>`}<div><h4>${b.n}</h4><p style="margin-top:8px">${b.d}</p><p style="margin-top:6px;color:#9fe3c2;font-weight:700">${PAIR[n]||''}</p><button class="again" id="again">Probar otra vez</button></div></div>`;
+  $('#again').onclick=q1}
+q1();
+
+/* planes */
+const PL=[
+ ['🏖️','2 min','Playa de San Lorenzo','La playa urbana de Gijón. Con marea baja, paseo por la arena hasta la iglesia de San Pedro.','Playa de San Lorenzo, Gijón'],
+ ['🚶','5 min','Paseo del Muro','Kilómetro y medio de paseo junto al mar. Al atardecer, imprescindible.','Paseo del Muro de San Lorenzo, Gijón'],
+ ['⛪','15 min','San Pedro y las Termas','La iglesia sobre la playa y, debajo, las termas romanas de Campo Valdés.','Termas Romanas de Campo Valdés, Gijón'],
+ ['🏘️','18 min','Cimadevilla','El barrio de pescadores: calles estrechas, sidrerías y la plaza Mayor.','Cimadevilla, Gijón'],
+ ['🗿','25 min','Elogio del Horizonte','La escultura de Chillida en el cerro de Santa Catalina, con vistas a todo Gijón.','Elogio del Horizonte, Gijón'],
+ ['🌿','10 min','Desembocadura del Piles','Al final del Muro, el río Piles y el parque Isabel la Católica con sus patos y pavos reales.','Parque de Isabel la Católica, Gijón']
+];
+$('#plans').innerHTML=PL.map(([e,m,t,d,q])=>`<a class="plan rv-in" href="https://www.google.com/maps/dir/?api=1&origin=Cervecer%C3%ADa+Moana+Gij%C3%B3n&destination=${encodeURIComponent(q)}&travelmode=walking" target="_blank" rel="noopener"><div class="top"><span class="e">${e}</span><span class="min">🚶 ${m}</span></div><h3>${t}</h3><p>${d}</p><span class="go">Cómo llegar andando →</span></a>`).join('');
+
+/* mar en directo (Open-Meteo) */
+const WC=c=>c===0?['☀️','despejado']:c<=2?['🌤️','algo de nubes']:c===3?['☁️','nublado']:c<=48?['🌫️','niebla']:c<=67?['🌧️','lluvia']:c<=77?['❄️','nieve']:c<=82?['🌦️','chubascos']:['⛈️','tormenta'];
+Promise.all([
+ fetch('https://api.open-meteo.com/v1/forecast?latitude=43.5448&longitude=-5.6495&current=temperature_2m,weather_code,wind_speed_10m&timezone=Europe%2FMadrid').then(r=>r.json()),
+ fetch('https://marine-api.open-meteo.com/v1/marine?latitude=43.551&longitude=-5.648&current=wave_height,sea_surface_temperature&timezone=Europe%2FMadrid').then(r=>r.json())
+]).then(([w,m])=>{
+  const t=Math.round(w.current.temperature_2m),wc=WC(w.current.weather_code),wind=Math.round(w.current.wind_speed_10m);
+  const wave=m.current.wave_height,sst=m.current.sea_surface_temperature;
+  const rain=w.current.weather_code>=51;
+  let v;
+  if(rain)v='Hoy llueve: <em>día de sofá</em>, caña y fútbol dentro.';
+  else if(wave>=1.6)v=`Olas de ${wave.toFixed(1)} m: <em>día de surf</em> en San Lorenzo.`;
+  else if(t>=22)v='Hace calor: <em>bote frío</em> y a la arena.';
+  else if(wind>=30)v='Sopla fuerte: <em>mejor dentro</em>, que se está de lujo.';
+  else v='Buen día para <em>un paseo por el Muro</em> y una caña después.';
+  $('#verdict').innerHTML=v;
+  $('#meas').innerHTML=`<div><b>${wc[0]} ${t}°</b><span>${wc[1]}</span></div>`+(sst!=null?`<div><b>${Math.round(sst)}°</b><span>agua del mar</span></div>`:'')+(wave!=null?`<div><b>${wave.toFixed(1)} m</b><span>olas</span></div>`:'')+`<div><b>${wind}</b><span>km/h viento</span></div>`;
+  $('#seaChip').textContent=`🌊 San Lorenzo ahora: ${t}° · agua ${sst!=null?Math.round(sst)+'°':'—'}`;
+}).catch(()=>{$('#verdict').innerHTML='A dos minutos de <em>San Lorenzo</em>. Baja a verlo tú mismo.';$('#meas').innerHTML=''});
+
+/* futbol (LALIGA Hypermotion, laliga.com) */
+const M=[
+ {h:'Real Sociedad B',a:'Real Sporting',t:'2026-11-14T15:15:00Z',tv:'LALIGA TV Hypermotion'},
+ {h:'Real Sporting',a:'UD Las Palmas',t:'2026-11-22T15:15:00Z',tv:'LALIGA TV Hypermotion · Orange Fútbol 2'},
+ {h:'UD Almería',a:'Real Sporting',t:'2026-11-29T20:00:00Z',tv:'LALIGA TV Hypermotion · Orange Fútbol 2'}
+];
+const up=()=>M.filter(m=>new Date(m.t).getTime()+2*3600e3>Date.now());
+const MS=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'],DS=['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
+const loc=t=>new Date(new Date(t).toLocaleString('en-US',{timeZone:'Europe/Madrid'}));
+const hh=d=>String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0');
+const sp=s=>s.replace('Real Sporting','<span class="rs">Sporting</span>');
+const pl=s=>s.replace('Real Sporting','Sporting');
+function renderM(){const u=up();
+  $('#matches').innerHTML=u.map((m,i)=>{const d=loc(m.t);return `<div class="match ${i?'':'first'}"><div class="md"><small>${DS[d.getDay()]}</small><b>${d.getDate()}</b><small>${MS[d.getMonth()]} · ${hh(d)}</small></div><div class="mt">${sp(m.h)} – ${sp(m.a)}<small>LALIGA Hypermotion · ${m.tv}</small></div><a class="btn ${i?'o':'p'}" target="_blank" rel="noopener" href="${wa(`Hola Omar, quería reservar sitio para ver el ${pl(m.h)} - ${pl(m.a)}. Seremos __ personas.`)}">Reservar sitio</a></div>`}).join('')||'<p class="lead">Muy pronto, los próximos partidos.</p>';
+  if(u[0])$('#nextLbl').innerHTML=`Próximo partido: <span style="color:var(--sea)">${pl(u[0].h)} – ${pl(u[0].a)}</span>`}
+function tick(){const u=up()[0];if(!u)return;let s=Math.max(0,Math.floor((new Date(u.t)-Date.now())/1000));
+  if(!s){$('#cd').innerHTML='<div style="flex:1"><b>¡En juego!</b><span>ven ya</span></div>';return}
+  $('#cd').innerHTML=[[Math.floor(s/86400),'días'],[Math.floor(s%86400/3600),'horas'],[Math.floor(s%3600/60),'min'],[s%60,'seg']].map(([v,l])=>`<div><b>${String(v).padStart(2,'0')}</b><span>${l}</span></div>`).join('')}
+renderM();tick();setInterval(tick,1000);
+
+/* reseñas reales de Google */
+const R=[
+ ['Sandra A. Vidal','Hace 2 años','Ubicada en el barrio de La Arena, cervecería acogedora, con gran variedad de cervezas, muy buenos pinchos y la atención de Omar, el dueño, siempre impecable. Es parada obligatoria siempre que salgo con mis hermanos.'],
+ ['Josua Tree','Hace un año','Un lugar con alma costera, donde cada detalle parece pensado para que te relajes y disfrutes. Tiene una buena variedad de cervezas artesanales y de importación, servidas siempre a la temperatura ideal.'],
+ ['Helga','Hace 9 meses','El dueño encantador, el ambiente inmejorable. Dispone de variedad de cervezas artesanales, servidas a la temperatura perfecta y además te pone unos pinchos espectaculares.'],
+ ['Magdalena Ch','Hace 2 años','Un bar de barrio estupendo, con un servicio fantástico, una tapa gratis con cada consumición y un camarero que conoce bien la zona y siempre está dispuesto a darte recomendaciones.'],
+ ['Mónica Álvarez Martínez','Hace 2 años','En pleno barrio La Arena, cerquita del mar, un trato inmejorable y te ponen con la consumición un pincho riquísimo.'],
+ ['Jorge Cárdenas','Hace 4 años','Muy buen sitio para tomar algo, atienden muy bien y ponen los deportes, yo voy a ver la F1 habitualmente.'],
+ ['Txus Palicio','Hace 4 años','Muy recomendable, sitio de barrio, te tratan como en casa. ¡Volver es la única opción!'],
+ ['Manuel Suarez','Hace 6 años','Genial, buen ambiente para todos y tu mascota. Personal muy simpático por encima de la medida.'],
+ ['Laura Lopez','Hace 2 años','Cervecería ideal, con un ambiente extraordinario al que suelo ir a menudo y siempre me encuentro como en casa.']
+];
+$('#rtrack').innerHTML=R.map(([n,d,t])=>`<article class="rv"><div class="stars" style="font-size:16px">★★★★★</div><q>${t}</q><div class="who"><span class="av">${n[0]}</span><div><b>${n}</b><span>${d} · Google</span></div></div></article>`).join('');
+const tr=$('#rtrack');$('#rNext').onclick=()=>tr.scrollBy({left:tr.clientWidth*.85,behavior:'smooth'});$('#rPrev').onclick=()=>tr.scrollBy({left:-tr.clientWidth*.85,behavior:'smooth'});
+
+/* whatsapp */
+const g='Hola Omar, te escribo desde la web de la Moana.';
+$('#fab').href=wa(g);$('#waMain').href=wa(g);$('#waTake').href=wa('Hola Omar, ¿qué botes fríos tenéis para llevar hoy?');
+
+/* galeria */
+const gi=$$('#gal img'),lb=$('#lb'),li=$('img',lb);let k=0;
+const big=s=>s.replace(/=w\d+-h\d+-k-no$/,'=w1800-h1400-k-no');
+const show=i=>{k=(i+gi.length)%gi.length;li.src=big(gi[k].src);lb.classList.add('on')};
+gi.forEach((im,i)=>im.parentNode.onclick=()=>show(i));
+$('.x',lb).onclick=()=>lb.classList.remove('on');$('.pv',lb).onclick=e=>{e.stopPropagation();show(k-1)};$('.nx',lb).onclick=e=>{e.stopPropagation();show(k+1)};
+lb.onclick=e=>{if(e.target===lb)lb.classList.remove('on')};
+addEventListener('keydown',e=>{if(!lb.classList.contains('on'))return;if(e.key==='Escape')lb.classList.remove('on');if(e.key==='ArrowRight')show(k+1);if(e.key==='ArrowLeft')show(k-1)});
+
+/* apariciones */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}}),{threshold:.1});
+$$('.rv-in').forEach(el=>io.observe(el));setTimeout(()=>$$('.rv-in').forEach(e=>e.classList.add('vis')),2500);
+})();
+</script>
+</body>
+</html>
